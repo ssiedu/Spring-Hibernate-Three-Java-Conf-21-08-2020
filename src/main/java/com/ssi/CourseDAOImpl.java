@@ -26,8 +26,11 @@ private SessionFactory sessionFactory;
 	public Course updateCourse(Course course) {
 		return null;
 	}
-	public Course searchCourse(int code) {
-		return null;
+	public Course searchCourseById(int code) {
+		Session session=sessionFactory.openSession();
+		Course course=session.get(Course.class, code);
+		session.close();
+		return course;
 	}
 	public Course deleteCourse(int code) {
 		return null;

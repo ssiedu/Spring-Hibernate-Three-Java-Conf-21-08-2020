@@ -18,6 +18,10 @@ public class CourseServiceImpl implements CourseService {
 		return dao.saveCourse(course);
 
 	}
+
+	public Course searchCourseById(int code) {
+		return dao.searchCourseById(code);
+	}
 	
 	
 	
