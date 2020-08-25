@@ -1,4 +1,5 @@
-<%@page isELIgnored="false" %>
+<%@page  isELIgnored="false" %>
+
 <html>
 <body>
 	<h3>Course-Details</h3>

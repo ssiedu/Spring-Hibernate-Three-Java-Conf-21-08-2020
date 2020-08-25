@@ -1,5 +1,7 @@
 package com.ssi;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,6 +23,11 @@ public class CourseServiceImpl implements CourseService {
 
 	public Course searchCourseById(int code) {
 		return dao.searchCourseById(code);
+	}
+
+	public List<Course> getAllCourses() {
+		// TODO Auto-generated method stub
+		return dao.getAllCourses();
 	}
 	
 	

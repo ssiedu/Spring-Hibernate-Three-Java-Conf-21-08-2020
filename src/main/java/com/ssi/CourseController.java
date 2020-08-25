@@ -1,5 +1,7 @@
 package com.ssi;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +15,14 @@ public class CourseController {
 	@Autowired
 	private CourseService service;
 	
+	
+	@RequestMapping("viewall")
+	public ModelAndView showAllCourses() {
+		List<Course> courses=service.getAllCourses();
+		ModelAndView mv=new ModelAndView("courselist-jstl");
+		mv.addObject("courses", courses);
+		return mv;
+	}
 	
 	@RequestMapping("searchcourse")
 	public ModelAndView searchCourse(@RequestParam("code") int code) {
