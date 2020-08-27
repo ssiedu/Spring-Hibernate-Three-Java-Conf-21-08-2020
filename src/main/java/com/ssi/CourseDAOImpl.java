@@ -1,7 +1,6 @@
 package com.ssi;
 
 import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -45,7 +44,13 @@ public class CourseDAOImpl implements CourseDAO {
 	}
 
 	public Course deleteCourse(int code) {
-		return null;
+		Session session = sessionFactory.openSession();
+		Course course=session.get(Course.class, code);
+		Transaction tr = session.beginTransaction();
+		session.delete(course);
+		tr.commit();
+		session.close();
+		return course;
 	}
 
 }

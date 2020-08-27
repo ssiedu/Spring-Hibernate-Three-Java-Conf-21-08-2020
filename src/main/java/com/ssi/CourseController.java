@@ -15,7 +15,24 @@ public class CourseController {
 	@Autowired
 	private CourseService service;
 	
-	
+	@RequestMapping("update")
+	public ModelAndView showUpdateForm(@RequestParam("code") int code) {
+		Course course=service.searchCourseById(code);
+		ModelAndView mv=new ModelAndView("update-form");
+		mv.addObject("course", course);
+		return mv;
+	}
+	@RequestMapping("deletecourse")
+	public ModelAndView deleteCourse(@RequestParam("code") int code) {
+		Course course=service.deleteCourse(code);
+		ModelAndView mv=new ModelAndView("delete-confirmation");
+		mv.addObject("course",course);
+		return mv;
+	}
+	@RequestMapping("delete")
+	public String showDeleteForm() {
+		return "delete-form";
+	}
 	@RequestMapping("viewall")
 	public ModelAndView showAllCourses() {
 		List<Course> courses=service.getAllCourses();

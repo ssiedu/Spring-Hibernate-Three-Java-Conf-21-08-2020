@@ -29,6 +29,10 @@ public class CourseServiceImpl implements CourseService {
 		// TODO Auto-generated method stub
 		return dao.getAllCourses();
 	}
+
+	public Course deleteCourse(int code) {
+		return dao.deleteCourse(code);
+	}
 	
 	
 	

@@ -6,6 +6,7 @@
 	<a href="newcourse">Add-New-Course</a>
 	<a href="search">Search-Course-By-Id</a>
 	<a href="viewall">View-All-Courses</a>
+	<a href="delete">Delete-A-Course</a>
 	</pre>
 <hr>
 </body>
