@@ -1,4 +1,4 @@
-package com.ssi;
+package com.ssi.controllers;
 
 import java.util.List;
 
@@ -9,12 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ssi.entities.Course;
+import com.ssi.services.CourseService;
+
 @Controller
 public class CourseController {
 	
 	@Autowired
 	private CourseService service;
 	
+	@RequestMapping("updatecourse")
+	public ModelAndView updateCourseData(@ModelAttribute("course") Course course) {
+		service.updateCourse(course);
+		ModelAndView mv=new ModelAndView("redirect:viewall");
+		return mv;
+	}
 	@RequestMapping("update")
 	public ModelAndView showUpdateForm(@RequestParam("code") int code) {
 		Course course=service.searchCourseById(code);

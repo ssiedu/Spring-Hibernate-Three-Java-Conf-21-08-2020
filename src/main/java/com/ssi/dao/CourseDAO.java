@@ -1,9 +1,8 @@
-package com.ssi;
+package com.ssi.dao;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import com.ssi.entities.Course;
 
 public interface CourseDAO {
 	public Course saveCourse(Course course);

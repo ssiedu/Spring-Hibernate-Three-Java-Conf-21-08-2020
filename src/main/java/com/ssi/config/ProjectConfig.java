@@ -1,4 +1,4 @@
-package com.ssi;
+package com.ssi.config;
 
 import java.util.Properties;
 
