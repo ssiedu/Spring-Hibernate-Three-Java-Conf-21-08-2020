@@ -1,5 +1,6 @@
 package com.ssi.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,18 @@ public class CourseController {
 	@Autowired
 	private CourseService service;
 	
+	@RequestMapping("springform")
+	public ModelAndView showSpringForm() {
+		//here we will show the spring-form
+		Course course=new Course(); course.setCode(555);course.setTitle("DataScience");course.setSubject("Python");course.setDuration(10);course.setFees(50000);
+		
+		List<String> sub=new ArrayList<String>();	sub.add("Android"); sub.add("Java"); sub.add("Oracle");  sub.add("Python");
+		
+		ModelAndView mv=new ModelAndView("sample-spring-form");
+		mv.addObject("info",course);
+		mv.addObject("subjects",sub);
+		return mv;
+	}
 	@RequestMapping("updatecourse")
 	public ModelAndView updateCourseData(@ModelAttribute("course") Course course) {
 		service.updateCourse(course);
