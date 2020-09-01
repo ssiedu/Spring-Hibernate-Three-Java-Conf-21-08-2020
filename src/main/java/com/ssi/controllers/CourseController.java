@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,27 @@ public class CourseController {
 	
 	@Autowired
 	private CourseService service;
+	
+	//savecourse?code=111&title=core+java&subject=java&duration=3&fees=7000
+	@RequestMapping("savecourse")
+	public ModelAndView saveCourseData(@ModelAttribute("info") Course course, BindingResult result) { //data-binding
+		
+		if(result.hasErrors()) {
+			//if control comes inside this if-block means there are some errors in data-binding. (data-binding-fail)
+			//write the code you want to execute for
+			//ModelAndView mv=new ModelAndView("errpage");
+			ModelAndView mv=new ModelAndView("centry");
+			return mv;
+		}
+		
+		
+		//we need to store model object into database using hibernate
+		service.saveCourse(course);
+		//forward the request to view
+		ModelAndView mv=new ModelAndView("confirmation");
+		return mv;
+				
+	}
 	
 	@RequestMapping("springform")
 	public ModelAndView showSpringForm() {
@@ -87,14 +109,5 @@ public class CourseController {
 		return "centry";
 	}
 	
-	//savecourse?code=111&title=core+java&subject=java&duration=3&fees=7000
-	@RequestMapping("savecourse")
-	public ModelAndView saveCourseData(@ModelAttribute("info") Course course) { //data-binding
-		//we need to store model object into database using hibernate
-		service.saveCourse(course);
-		//forward the request to view
-		ModelAndView mv=new ModelAndView("confirmation");
-		return mv;
-				
-	}
+
 }

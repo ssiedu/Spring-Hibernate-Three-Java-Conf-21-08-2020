@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="fr" %>
 <html>
 <body>
 	<h3>Course-Entry-Form</h3>
@@ -13,5 +14,6 @@
 	</pre>
 	</form>
 	<hr>
+	<fr:errors path="info.*"/>
 </body>
 </html>
