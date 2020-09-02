@@ -3,6 +3,8 @@ package com.ssi.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,7 +24,7 @@ public class CourseController {
 	
 	//savecourse?code=111&title=core+java&subject=java&duration=3&fees=7000
 	@RequestMapping("savecourse")
-	public ModelAndView saveCourseData(@ModelAttribute("info") Course course, BindingResult result) { //data-binding
+	public ModelAndView saveCourseData(@Valid @ModelAttribute("info") Course course, BindingResult result) { //data-binding
 		
 		if(result.hasErrors()) {
 			//if control comes inside this if-block means there are some errors in data-binding. (data-binding-fail)

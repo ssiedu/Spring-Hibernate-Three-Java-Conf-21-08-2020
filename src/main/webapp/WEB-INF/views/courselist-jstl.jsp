@@ -1,4 +1,4 @@
-<%@page import="java.util.List, com.ssi.Course" isELIgnored="false" %>
+<%@page import="java.util.List, com.ssi.entities.Course" isELIgnored="false" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl" %>
 
 <html>

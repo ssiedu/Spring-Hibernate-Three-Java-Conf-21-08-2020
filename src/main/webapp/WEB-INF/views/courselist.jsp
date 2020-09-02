@@ -1,4 +1,4 @@
-<%@page import="java.util.List, com.ssi.Course" isELIgnored="false" %>
+<%@page import="java.util.List, com.ssi.entities.Course" isELIgnored="false" %>
 <%
 	//we are retrieving courselist from request scope
 	List<Course> courses=(List<Course>)request.getAttribute("courses");
