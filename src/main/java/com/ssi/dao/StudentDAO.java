@@ -22,4 +22,10 @@ public class StudentDAO {
 		session.close();
 		return student;
 	}
+	public Student searchStudent(int rno) {
+		Session session=sessionFactory.openSession();
+		Student student=session.get(Student.class,rno);
+		session.close();
+		return student;
+	}
 }

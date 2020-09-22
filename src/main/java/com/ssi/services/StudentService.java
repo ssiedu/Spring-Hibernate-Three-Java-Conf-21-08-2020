@@ -10,6 +10,11 @@ import com.ssi.entities.Student;
 public class StudentService {
 	@Autowired
 	private StudentDAO dao;
+	
+	public Student searchStudent(int rno) {
+		return dao.searchStudent(rno);
+	}
+	
 	public Student saveStudent(Student student) {
 		return dao.saveStudent(student);
 	}
