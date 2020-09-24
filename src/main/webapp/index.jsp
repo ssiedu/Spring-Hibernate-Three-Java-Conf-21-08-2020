@@ -3,6 +3,7 @@
 <h2>Spring-Hibernate-Example</h2>
 <hr>
 	<pre>
+	<a href="mailform">Mail-Student</a>
 	<a href="newstudent">Add-New-Student</a>
 	<a href="searchform">Search-Student-By-Rno</a>
 	<a href="newcourse">Add-New-Course</a>
